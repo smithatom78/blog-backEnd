@@ -236,12 +236,17 @@ app.post('/api/addart', async (req, res) => {
     res.send(`${articleName}no has ${articleInfo[articleName].upvotes}upvotes`);
     });*/
 
-app.get('/', function (req, res) {
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.join('./public', 'index.html'));
+     });
+     
+     /*app.get('/', function (req, res) {
     res.send("Blog server up");
 });
 app.post('/', function (req, res) {
     res.send(`hi ${req.body.name} Blog post`);
-});
+});*/
 //listening to port
 
 app.listen(process.env.PORT || 5000, () => { console.log(`Listening on port ${process.env.PORT} or 5000`) });
